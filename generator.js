@@ -7,7 +7,7 @@ let seven = 0;
 let nine = 0;
 
 
-const randomNumber = () => {
+const generate = () => {
 
 
     for (let i = 0; i < 9; i++) {
@@ -63,7 +63,7 @@ const randomNumber = () => {
             lastNumberString = null;
             seven = 0;
             nine = 0;
-            randomNumber()
+            generate()
         }, 700)
     }
 
@@ -71,5 +71,5 @@ const randomNumber = () => {
 
 }
 
-randomNumber();
+generate();
 
