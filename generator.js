@@ -1,10 +1,10 @@
 
 let numberList = [];
-let tenthNumber = 0;
-let eleven1 = 0;
-let lastNumberString = null;
-let seven = 0;
-let nine = 0;
+let tenthNumber = 0; // calculated by odd and even Indexes
+let firstEleventhNumber = 0; // calculated by oddIndexes
+let secondEleventhNumber = null; // calculated by first 10 number 
+let oddIndexes = 0; // 1, 3, 5, 7, 9'th numbers
+let evenIndexes = 0; // 2, 4, 6, 8,'th numbers
 
 
 const generate = () => {
@@ -22,10 +22,10 @@ const generate = () => {
         }
 
         if ((i % 2) == 0) {
-            seven = seven + numberList[i]
-            eleven1 = seven * 8
+            oddIndexes = oddIndexes + numberList[i]
+            firstEleventhNumber = oddIndexes * 8
         } else if (i != 9) {
-            nine = nine + numberList[i]
+            evenIndexes = evenIndexes + numberList[i]
         }
 
     };
@@ -35,17 +35,17 @@ const generate = () => {
         return accumulator + value;
     }, 0);
 
-    lastNumberString = sum.toString().slice(-1)
+    secondEleventhNumber = sum.toString().slice(-1)
 
-    tenthNumber = (nine * 9 + seven * 7).toString().slice(-1)
+    tenthNumber = (evenIndexes * 9 + oddIndexes * 7).toString().slice(-1)
     numberList.push(parseInt(tenthNumber))
 
 
-    eleven1 = eleven1.toString().slice(-1)
+    firstEleventhNumber = firstEleventhNumber.toString().slice(-1)
 
 
-    if (parseInt(eleven1) == parseInt(lastNumberString)) {
-        numberList.push(parseInt(eleven1))
+    if (parseInt(firstEleventhNumber) == parseInt(secondEleventhNumber)) {
+        numberList.push(parseInt(firstEleventhNumber))
         console.log(numberList.join(''))
 
         // Creates and writes the created number to tc.txt file
@@ -59,10 +59,10 @@ const generate = () => {
         setTimeout(() => {
             numberList = [];
             tenthNumber = 0;
-            eleven1 = 0;
-            lastNumberString = null;
-            seven = 0;
-            nine = 0;
+            firstEleventhNumber = 0;
+            secondEleventhNumber = null;
+            oddIndexes = 0;
+            evenIndexes = 0;
             generate()
         }, 700)
     }
