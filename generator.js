@@ -55,7 +55,7 @@ const generate = () => {
 
 
     } else {
-        console.log("last numbers are not equal, regenerating numbers...")
+        console.log("last numbers are not equal, numbers are regenerating...")
         setTimeout(() => {
             numberList = [];
             tenthNumber = 0;
